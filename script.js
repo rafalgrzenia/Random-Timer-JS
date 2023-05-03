@@ -25,13 +25,11 @@ function getRandomSeconds() {
 // Events
 
 startTimer.addEventListener("click", () => {
-  
-    switch(startTimer.innerText) {
-        case 'Start Timer':
-            startTimer.innerText = "Cancel Timer"
-            break;
-        case 'Cancel Timer':
-            startTimer.innerText = "Start Timer"
-            break;
-    }
+  if (startTimer.innerText === "Start Timer") {
+    startTimer.innerText = "Cancel Timer";
+    // timeInputsDiv.classList.toggle("hidden");
+  } else {
+    startTimer.innerText = "Start Timer";
+    // timeInputsDiv.classList.toggle("hidden");
+  }
 });
