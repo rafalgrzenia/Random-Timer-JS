@@ -1,8 +1,10 @@
 // Elements
 
 const startTimer = document.querySelector("#start-timer");
+const timeInputsDiv = document.querySelector(".time-inputs");
 const minTimeInput = document.querySelector("#min-time-input");
 const maxTimeInput = document.querySelector("#max-time-input");
+const testButton = document.querySelector(".test");
 
 
 
