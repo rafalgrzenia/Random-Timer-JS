@@ -2,3 +2,12 @@ body {
     display: grid;
     place-content: center;
 }
+
+.hidden {
+    display: none;
+}
+
+.time {
+    margin-top: 1em;
+    font-size: 4rem;
+}
