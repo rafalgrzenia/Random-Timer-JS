@@ -15,7 +15,12 @@ function getRandomMinutes() {
   return randomNumberOfMinutes;
 }
 
-// Functions
+function getRandomSeconds() {
+  const min = minTimeInput.value * 1000;
+  const max = maxTimeInput.value * 1000;
+  const randomNumberOfMinutes = Math.floor(Math.random() * (max - min) + min);
+  return randomNumberOfMinutes;
+}
 
 // Events
 
