@@ -33,3 +33,19 @@ startTimer.addEventListener("click", () => {
     // timeInputsDiv.classList.toggle("hidden");
   }
 });
+
+// Functions
+
+function repeatedTimeOut() {
+  setTimeout(addTimeout, tenSeconds);
+}
+
+function addTimeout() {
+  setTimeout(() => {
+    console.log("Pierwszy timeout");
+    setTimeout(() => {
+      console.log("Drugi timeout");
+      repeatedTimeOut();
+    }, 10000);
+  }, 250);
+}
