@@ -35,13 +35,13 @@ startTimer.addEventListener("click", () => {
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
     intervalId = setInterval(addTimeout, randomTime);
-    // timeInputsDiv.classList.toggle("hidden");
+    timeInputsDiv.classList.toggle("hidden");
   } else {
     startTimer.innerText = "Start Timer";
     clearTimeout(timeout1);
     clearTimeout(timeout2);
     clearInterval(intervalId);
-    // timeInputsDiv.classList.toggle("hidden");
+    timeInputsDiv.classList.toggle("hidden");
   }
 });
 
