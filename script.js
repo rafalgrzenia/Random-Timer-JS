@@ -5,12 +5,12 @@ const timeInputsDiv = document.querySelector(".time-inputs");
 const minTimeInput = document.querySelector("#min-time-input");
 const maxTimeInput = document.querySelector("#max-time-input");
 const testButton = document.querySelector(".test");
+const beepAlert = new Audio("./audio/beep.mp3");
 
 let timeout1;
 let timeout2;
 let intervalId;
 let randomTime;
-
 
 // Functions
 
@@ -34,7 +34,6 @@ startTimer.addEventListener("click", () => {
   if (startTimer.innerText === "Start Timer") {
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
-    console.log(randomTime);
     intervalId = setInterval(addTimeout, randomTime);
     // timeInputsDiv.classList.toggle("hidden");
   } else {
@@ -51,11 +50,10 @@ startTimer.addEventListener("click", () => {
 function addTimeout() {
   timeout1 = setTimeout(() => {
     clearInterval(intervalId);
-    console.log("Pierwszy timeout");
+    beepAlert.play();
     timeout2 = setTimeout(() => {
-      console.log("Drugi timeout");
+      beepAlert.play();
       randomTime = getRandomMinutes();
-      console.log(randomTime);
       intervalId = setInterval(addTimeout, randomTime);
     }, 10000);
   }, 250);
