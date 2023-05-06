@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <title>Random Timer</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Random Timer</h1>
     <div class="container">
-        <button id="start-timer">Start Timer</button>
-        <div class="time-inputs">
-            <p>Min Time</p>
-            <input type="number" id="min-time-input" value="2">
-            <p>Max Time</p>
-            <input type="number" id="max-time-input" value="4">
+      <button id="start-timer">Start Timer</button>
+      <div class="time-inputs">
+        <div class="audio-controls">
+          <span> Volume:</span> <input id="volume" type="range" />
         </div>
-        <div class="time"></div>
+        <p>Min Time</p>
+        <input type="number" id="min-time-input" value="2" />
+        <p>Max Time</p>
+        <input type="number" id="max-time-input" value="4" />
+      </div>
+      <div class="time"></div>
     </div>
-</body>
+  </body>
 </html>

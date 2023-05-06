@@ -3,6 +3,11 @@ body {
     place-content: center;
 }
 
+.container {
+    display: grid;
+    place-content: center;
+}
+
 .hidden {
     display: none;
 }
@@ -10,4 +15,18 @@ body {
 .time {
     margin-top: 1em;
     font-size: 4rem;
+}
+
+#start-timer {
+    margin-bottom: 1.5em;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+}
+
+.audio-controls span {
+    font-size: 1.2rem;
+    margin-right: 0.5em;
 }

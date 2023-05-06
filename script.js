@@ -5,6 +5,7 @@ const timeInputsDiv = document.querySelector(".time-inputs");
 const minTimeInput = document.querySelector("#min-time-input");
 const maxTimeInput = document.querySelector("#max-time-input");
 const testButton = document.querySelector(".test");
+const beepVolumeInput = document.querySelector("#volume");
 const beepAlert = new Audio("./audio/beep.mp3");
 
 let timeout1;
@@ -44,6 +45,7 @@ function addTimeout() {
 
 startTimer.addEventListener("click", () => {
   if (startTimer.innerText === "Start Timer") {
+    beepAlert.volume = beepVolumeInput.value / 100;
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
     intervalId = setInterval(addTimeout, randomTime);
