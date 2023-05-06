@@ -28,13 +28,25 @@ function getRandomSeconds() {
   return randomNumberOfSeconds;
 }
 
+function addTimeout() {
+  timeout1 = setTimeout(() => {
+    clearInterval(intervalId);
+    beepAlert.play();
+    timeout2 = setTimeout(() => {
+      beepAlert.play();
+      randomTime = getRandomMinutes();
+      intervalId = setInterval(addTimeout, 5000);
+    }, 10000);
+  }, 250);
+}
+
 // Events
 
 startTimer.addEventListener("click", () => {
   if (startTimer.innerText === "Start Timer") {
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
-    intervalId = setInterval(addTimeout, randomTime);
+    intervalId = setInterval(addTimeout, 5000);
     timeInputsDiv.classList.toggle("hidden");
   } else {
     startTimer.innerText = "Start Timer";
@@ -44,17 +56,3 @@ startTimer.addEventListener("click", () => {
     timeInputsDiv.classList.toggle("hidden");
   }
 });
-
-// Functions
-
-function addTimeout() {
-  timeout1 = setTimeout(() => {
-    clearInterval(intervalId);
-    beepAlert.play();
-    timeout2 = setTimeout(() => {
-      beepAlert.play();
-      randomTime = getRandomMinutes();
-      intervalId = setInterval(addTimeout, randomTime);
-    }, 10000);
-  }, 250);
-}
