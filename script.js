@@ -35,25 +35,30 @@ function getRandomSeconds() {
 startTimer.addEventListener("click", () => {
   if (startTimer.innerText === "Start Timer") {
     startTimer.innerText = "Cancel Timer";
+    randomTime = getRandomMinutes();
+
+    intervalId = setInterval(addTimeout, randomTime);
     // timeInputsDiv.classList.toggle("hidden");
   } else {
     startTimer.innerText = "Start Timer";
+    clearTimeout(timeout1);
+    clearTimeout(timeout2);
+    clearInterval(intervalId);
     // timeInputsDiv.classList.toggle("hidden");
   }
 });
 
 // Functions
 
-function repeatedTimeOut() {
-  setTimeout(addTimeout, tenSeconds);
-}
-
 function addTimeout() {
-  setTimeout(() => {
+  timeout1 = setTimeout(() => {
+    clearInterval(intervalId);
     console.log("Pierwszy timeout");
-    setTimeout(() => {
+    timeout2 = setTimeout(() => {
       console.log("Drugi timeout");
-      repeatedTimeOut();
+      randomTime = getRandomMinutes();
+      intervalId = setInterval(addTimeout, randomTime);
+      console.log(date);
     }, 10000);
   }, 250);
 }
