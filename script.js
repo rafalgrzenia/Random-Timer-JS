@@ -9,10 +9,8 @@ const testButton = document.querySelector(".test");
 let timeout1;
 let timeout2;
 let intervalId;
-
 let randomTime;
 
-let date = Date();
 
 // Functions
 
@@ -36,7 +34,7 @@ startTimer.addEventListener("click", () => {
   if (startTimer.innerText === "Start Timer") {
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
-
+    console.log(randomTime);
     intervalId = setInterval(addTimeout, randomTime);
     // timeInputsDiv.classList.toggle("hidden");
   } else {
@@ -57,8 +55,8 @@ function addTimeout() {
     timeout2 = setTimeout(() => {
       console.log("Drugi timeout");
       randomTime = getRandomMinutes();
+      console.log(randomTime);
       intervalId = setInterval(addTimeout, randomTime);
-      console.log(date);
     }, 10000);
   }, 250);
 }
