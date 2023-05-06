@@ -35,7 +35,7 @@ function addTimeout() {
     timeout2 = setTimeout(() => {
       beepAlert.play();
       randomTime = getRandomMinutes();
-      intervalId = setInterval(addTimeout, 5000);
+      intervalId = setInterval(addTimeout, randomTime);
     }, 10000);
   }, 250);
 }
@@ -46,7 +46,7 @@ startTimer.addEventListener("click", () => {
   if (startTimer.innerText === "Start Timer") {
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
-    intervalId = setInterval(addTimeout, 5000);
+    intervalId = setInterval(addTimeout, randomTime);
     timeInputsDiv.classList.toggle("hidden");
   } else {
     startTimer.innerText = "Start Timer";
