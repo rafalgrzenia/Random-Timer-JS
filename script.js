@@ -6,6 +6,14 @@ const minTimeInput = document.querySelector("#min-time-input");
 const maxTimeInput = document.querySelector("#max-time-input");
 const testButton = document.querySelector(".test");
 
+let timeout1;
+let timeout2;
+let intervalId;
+
+let randomTime;
+
+let date = Date();
+
 // Functions
 
 function getRandomMinutes() {
