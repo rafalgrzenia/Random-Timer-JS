@@ -37,7 +37,7 @@ function addTimeout() {
       beepAlert.play();
       randomTime = getRandomMinutes();
       intervalId = setInterval(addTimeout, randomTime);
-    }, 10000);
+    }, 13000);
   }, 250);
 }
 
