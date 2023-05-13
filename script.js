@@ -8,8 +8,8 @@ const testButton = document.querySelector(".test");
 const beepVolumeInput = document.querySelector("#volume");
 const beepAlert = new Audio("./audio/beep.mp3");
 
-let timeout1;
-let timeout2;
+let firstTimeout;
+let secondTimeout;
 let intervalId;
 let randomTime;
 
@@ -30,10 +30,10 @@ function getRandomSeconds() {
 }
 
 function addTimeout() {
-  timeout1 = setTimeout(() => {
+  firstTimeout = setTimeout(() => {
     clearInterval(intervalId);
     beepAlert.play();
-    timeout2 = setTimeout(() => {
+    secondTimeout = setTimeout(() => {
       beepAlert.play();
       randomTime = getRandomMinutes();
       intervalId = setInterval(addTimeout, randomTime);
@@ -52,8 +52,8 @@ startTimer.addEventListener("click", () => {
     timeInputsDiv.classList.toggle("hidden");
   } else {
     startTimer.innerText = "Start Timer";
-    clearTimeout(timeout1);
-    clearTimeout(timeout2);
+    clearTimeout(firstTimeout);
+    clearTimeout(secondTimeout);
     clearInterval(intervalId);
     timeInputsDiv.classList.toggle("hidden");
   }
