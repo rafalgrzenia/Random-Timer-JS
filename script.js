@@ -22,12 +22,12 @@ function getRandomMinutes() {
   return randomNumberOfMinutes;
 }
 
-function getRandomSeconds() {
-  const min = minTimeInput.value * 1000;
-  const max = maxTimeInput.value * 1000;
-  const randomNumberOfSeconds = Math.floor(Math.random() * (max - min) + min);
-  return randomNumberOfSeconds;
-}
+// function getRandomSeconds() {
+//   const min = minTimeInput.value * 1000;
+//   const max = maxTimeInput.value * 1000;
+//   const randomNumberOfSeconds = Math.floor(Math.random() * (max - min) + min);
+//   return randomNumberOfSeconds;
+// }
 
 function addTimeout() {
   firstTimeout = setTimeout(() => {
@@ -48,6 +48,7 @@ startTimer.addEventListener("click", () => {
     beepAlert.volume = beepVolumeInput.value / 100;
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
+    console.log(randomTime);
     intervalId = setInterval(addTimeout, randomTime);
     timeInputsDiv.classList.toggle("hidden");
   } else {
