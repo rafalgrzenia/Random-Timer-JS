@@ -13,8 +13,7 @@ let secondTimeout;
 let intervalId;
 let randomTime;
 
-// LocalStorage
-
+// Managing LocalStorage
 
 const minTimeKey = "MinTime";
 const maxTimeKey = "MaxTime";
@@ -24,7 +23,6 @@ maxTimeInput.value = getValueFromLocalStorage(maxTimeKey);
 
 if (minTimeInput.value === "") minTimeInput.value = 2;
 if (maxTimeInput.value === "") maxTimeInput.value = 3;
-
 
 minTimeInput.addEventListener("change", (e) => {
   saveValueToLocalStorage(minTimeKey, e.target.value);
@@ -36,13 +34,6 @@ maxTimeInput.addEventListener("change", (e) => {
 
 // Functions
 
-function getRandomMinutes() {
-  const min = minTimeInput.value * 60000;
-  const max = maxTimeInput.value * 60000;
-  const randomNumberOfMinutes = Math.floor(Math.random() * (max - min) + min);
-  return randomNumberOfMinutes;
-}
-
 function saveValueToLocalStorage(key, value) {
   localStorage.setItem(key, value);
 }
@@ -51,12 +42,12 @@ function getValueFromLocalStorage(key) {
   return localStorage.getItem(key);
 }
 
-// function getRandomSeconds() {
-//   const min = minTimeInput.value * 1000;
-//   const max = maxTimeInput.value * 1000;
-//   const randomNumberOfSeconds = Math.floor(Math.random() * (max - min) + min);
-//   return randomNumberOfSeconds;
-// }
+function getRandomMinutes() {
+  const min = minTimeInput.value * 60000;
+  const max = maxTimeInput.value * 60000;
+  const randomNumberOfMinutes = Math.floor(Math.random() * (max - min) + min);
+  return randomNumberOfMinutes;
+}
 
 function addTimeout() {
   firstTimeout = setTimeout(() => {
@@ -87,7 +78,6 @@ startTimer.addEventListener("click", () => {
     beepAlert.volume = beepVolumeInput.value / 100;
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
-    console.log(randomTime);
     intervalId = setInterval(addTimeout, randomTime);
     timeInputsDiv.classList.toggle("hidden");
   } else {
