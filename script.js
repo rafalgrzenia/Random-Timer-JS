@@ -13,6 +13,27 @@ let secondTimeout;
 let intervalId;
 let randomTime;
 
+// LocalStorage
+
+
+const minTimeKey = "MinTime";
+const maxTimeKey = "MaxTime";
+
+minTimeInput.value = getValueFromLocalStorage(minTimeKey);
+maxTimeInput.value = getValueFromLocalStorage(maxTimeKey);
+
+if (minTimeInput.value === "") minTimeInput.value = 2;
+if (maxTimeInput.value === "") maxTimeInput.value = 3;
+
+
+minTimeInput.addEventListener("change", (e) => {
+  saveValueToLocalStorage(minTimeKey, e.target.value);
+});
+
+maxTimeInput.addEventListener("change", (e) => {
+  saveValueToLocalStorage(maxTimeKey, e.target.value);
+});
+
 // Functions
 
 function getRandomMinutes() {
@@ -20,6 +41,14 @@ function getRandomMinutes() {
   const max = maxTimeInput.value * 60000;
   const randomNumberOfMinutes = Math.floor(Math.random() * (max - min) + min);
   return randomNumberOfMinutes;
+}
+
+function saveValueToLocalStorage(key, value) {
+  localStorage.setItem(key, value);
+}
+
+function getValueFromLocalStorage(key) {
+  return localStorage.getItem(key);
 }
 
 // function getRandomSeconds() {
