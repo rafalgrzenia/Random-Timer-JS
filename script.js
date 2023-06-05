@@ -73,6 +73,16 @@ function addTimeout() {
 // Events
 
 startTimer.addEventListener("click", () => {
+  if (minTimeInput.value == false) {
+    alert("Please type min time value");
+    return;
+  }
+
+  if (maxTimeInput.value == false) {
+    alert("Please type max time value");
+    return;
+  }
+
   if (startTimer.innerText === "Start Timer") {
     beepAlert.volume = beepVolumeInput.value / 100;
     startTimer.innerText = "Cancel Timer";
