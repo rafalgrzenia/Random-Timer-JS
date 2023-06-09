@@ -60,6 +60,16 @@ function getValueFromLocalStorage(key) {
   return localStorage.getItem(key);
 }
 
+function resetToDefaultValues() {
+  saveValueToLocalStorage(VOLUME_KEY, 50);
+  saveValueToLocalStorage(minTimeKey, 2);
+  saveValueToLocalStorage(maxTimeKey, 3);
+  alertInput.value = 50;
+  alertSound.volume = 0.5;
+  minTimeInput.value = 2;
+  maxTimeInput.value = 3;
+}
+
 function getRandomMinutes() {
   const min = minTimeInput.value * 60000;
   const max = maxTimeInput.value * 60000;
@@ -106,12 +116,4 @@ startTimer.addEventListener("click", () => {
   }
 });
 
-resetButton.addEventListener("click", () => {
-  saveValueToLocalStorage(VOLUME_KEY, 50);
-  saveValueToLocalStorage(minTimeKey, 2);
-  saveValueToLocalStorage(maxTimeKey, 3);
-  alertInput.value = 50;
-  alertSound.volume = 0.5;
-  minTimeInput.value = 2;
-  maxTimeInput.value = 3;
-});
+resetButton.addEventListener("click", resetToDefaultValues)
