@@ -104,11 +104,13 @@ startTimer.addEventListener("click", () => {
 
   if (startTimer.innerText === "Start Timer") {
     startTimer.innerText = "Cancel Timer";
+    resetButton.style.display = "none";
     randomTime = getRandomMinutes();
     intervalId = setInterval(addTimeout, randomTime);
     timeInputsDiv.classList.toggle("hidden");
   } else {
     startTimer.innerText = "Start Timer";
+    resetButton.style.display = "block";
     clearTimeout(firstTimeout);
     clearTimeout(secondTimeout);
     clearInterval(intervalId);
