@@ -69,9 +69,9 @@ function getRandomMinutes() {
 function addTimeout() {
   firstTimeout = setTimeout(() => {
     clearInterval(intervalId);
-    beepAlert.play();
+    alertSound.play();
     secondTimeout = setTimeout(() => {
-      beepAlert.play();
+      alertSound.play();
       randomTime = getRandomMinutes();
       intervalId = setInterval(addTimeout, randomTime);
     }, 13000);
