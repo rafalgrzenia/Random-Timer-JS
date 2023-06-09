@@ -80,6 +80,7 @@ function addTimeout() {
 
 // Events
 
+
 startTimer.addEventListener("click", () => {
   if (minTimeInput.value == false) {
     alert("Please type min time value");
@@ -92,7 +93,6 @@ startTimer.addEventListener("click", () => {
   }
 
   if (startTimer.innerText === "Start Timer") {
-    beepAlert.volume = beepVolumeInput.value / 100;
     startTimer.innerText = "Cancel Timer";
     randomTime = getRandomMinutes();
     intervalId = setInterval(addTimeout, randomTime);
