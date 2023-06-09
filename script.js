@@ -5,15 +5,32 @@ const timeInputsDiv = document.querySelector(".time-inputs");
 const minTimeInput = document.querySelector("#min-time-input");
 const maxTimeInput = document.querySelector("#max-time-input");
 const testButton = document.querySelector(".test");
-const beepVolumeInput = document.querySelector("#volume");
-const beepAlert = new Audio("./audio/beep.mp3");
 
 let firstTimeout;
 let secondTimeout;
 let intervalId;
 let randomTime;
 
-// Managing LocalStorage
+// Alert
+const VOLUME_KEY = "RANDOM_TIMER_VOLUME";
+const alertInput = document.querySelector("#volume");
+const alertSound = new Audio("./audio/beep.mp3");
+const alertVolume = getValueFromLocalStorage(VOLUME_KEY);
+
+alertInput.value = alertVolume;
+
+if (alertVolume === null) {
+  alertSound.volume = 0.5;
+} else {
+  alertSound.volume = alertVolume / 100;
+}
+
+alertInput.addEventListener("change", (e) => {
+  saveValueToLocalStorage(VOLUME_KEY, e.target.value);
+  alertSound.volume = getValueFromLocalStorage(VOLUME_KEY) / 100;
+});
+
+// MinTime and MaxTime LocalStorage
 
 const minTimeKey = "MinTime";
 const maxTimeKey = "MaxTime";
