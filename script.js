@@ -5,6 +5,7 @@ const timeInputsDiv = document.querySelector(".time-inputs");
 const minTimeInput = document.querySelector("#min-time-input");
 const maxTimeInput = document.querySelector("#max-time-input");
 const testButton = document.querySelector(".test");
+const resetButton = document.querySelector(".reset-button");
 
 let firstTimeout;
 let secondTimeout;
@@ -80,7 +81,6 @@ function addTimeout() {
 
 // Events
 
-
 startTimer.addEventListener("click", () => {
   if (minTimeInput.value == false) {
     alert("Please type min time value");
@@ -104,4 +104,14 @@ startTimer.addEventListener("click", () => {
     clearInterval(intervalId);
     timeInputsDiv.classList.toggle("hidden");
   }
+});
+
+resetButton.addEventListener("click", () => {
+  saveValueToLocalStorage(VOLUME_KEY, 50);
+  saveValueToLocalStorage(minTimeKey, 2);
+  saveValueToLocalStorage(maxTimeKey, 3);
+  alertInput.value = 50;
+  alertSound.volume = 0.5;
+  minTimeInput.value = 2;
+  maxTimeInput.value = 3;
 });
