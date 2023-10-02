@@ -6,6 +6,7 @@ const minTimeInput = document.querySelector("#min-time-input");
 const maxTimeInput = document.querySelector("#max-time-input");
 const testButton = document.querySelector(".test");
 const resetButton = document.querySelector(".reset-button");
+const checkVolumeButton = document.querySelector(".check-volume");
 
 let firstTimeout;
 let secondTimeout;
@@ -118,4 +119,8 @@ startTimer.addEventListener("click", () => {
   }
 });
 
-resetButton.addEventListener("click", resetToDefaultValues)
+checkVolumeButton.addEventListener("click", () => {
+  alertSound.play();
+});
+
+resetButton.addEventListener("click", resetToDefaultValues);
