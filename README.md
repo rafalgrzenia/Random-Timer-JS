@@ -8,7 +8,7 @@
 
 ### How it works:
 
-#### Timer generates random time between two values(in minutes), after that time it plays an alert to take a break that lasts about 10 seconds( + 3 extra seconds to pause) after 10 seconds it plays the alert again and then it repeats the process.
+#### Timer generate random time between two values(in minutes), after that time it plays an alert to take a break that lasts about 10 seconds( + 3 extra seconds to pause) after 10 seconds it plays the alert again and then it repeats the process.
 
 ---
 
