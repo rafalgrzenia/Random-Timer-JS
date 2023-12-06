@@ -1,6 +1,6 @@
 # Random Timer
 
-#### Random timer app was made based on study on humans, which shows that random interval breaks, increase learning efficiency.
+#### Random timer app was made based on study on humans, which shows that random interval breaks for 10 seconds, increase learning efficiency.
 
 ### [More Details](https://hubermanlab.com/teach-and-learn-better-with-a-neuroplasticity-super-protocol/)
 
